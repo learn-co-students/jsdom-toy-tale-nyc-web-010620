@@ -1,11 +1,16 @@
 let addToy = false;
+let toysArr = []
+const likeBtn = document.getElementById("like-btn")
 
 document.addEventListener("DOMContentLoaded", () => {
   let url = "http://localhost:3000/toys"
 
   fetch(url)
     .then(resp => resp.json())
-    .then(toys => fetchToys(toys)); 
+    .then(toys => {
+      toysArr = toys
+      fetchToys(toys)
+    }); 
 
   const addBtn = document.querySelector("#new-toy-btn");
   const toyForm = document.querySelector(".container");
@@ -18,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       toyForm.style.display = "none";
     }
-  
   });
 //
 
@@ -43,6 +47,27 @@ toyInputs.addEventListener("submit", function(e){
   })
 })
 
+  document.addEventListener("click",function(event){
+    if(event.target.className === "like-btn"){
+      const foundToy = toysArr.find(toy => toy.id === parseInt(event.target.id))
+      const button = document.getElementById(foundToy.id)
+      const p = button.parentElement.children[2]
+      foundToy.likes = parseInt(foundToy.likes) + 1
+      p.innerText = `${foundToy.likes} Likes `
+
+      fetch(`http://localhost:3000/toys/${foundToy.id}`, {
+        method: "PATCH",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+         likes: `${foundToy.likes}`
+        })
+      })
+    }
+  })
+
 
 });
 
@@ -54,10 +79,10 @@ function fetchToys(toys){
 
     toyPost.innerHTML = `
       <div class="card">
-        <h2>${toys[i]["name"]}</h2>
-        <img src=${toys[i]["image"]} class="toy-avatar" />
-        <p>${toys[i]["likes"]} Likes </p>
-        <button class="like-btn">Like <3</button>
+        <h2>${toys[i].name}</h2>
+        <img src=${toys[i].image} class="toy-avatar" />
+        <p>${toys[i].likes} Likes </p>
+        <button class="like-btn" id=${toys[i].id}>Like <3</button>
       </div>
     `
     toyPost.dataset.id = toys[i]["id"]
@@ -66,23 +91,3 @@ function fetchToys(toys){
   }  
 }
 
-function like(toys){
-  for (i = 0; i < toys.length; i++){
-    const likeBtn = document.getElementsByClassName("like-btn")
-    likeBtn.addEventListener('click', function(e){
-      
-      fetch(url, {
-      method: "PATCH", 
-        headers: 
-        {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        
-        body: JSON.stringify({
-          "likes": e.target.likes++
-        })
-      })
-  })
-}
-}
