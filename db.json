@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": "62"
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": "19"
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "id": 4,
       "name": "Slinky Dog",
       "image": "https://www.freeiconspng.com/uploads/slinky-png-transparent-1.png",
-      "likes": 4
+      "likes": "19"
     },
     {
       "id": 5,
@@ -47,6 +47,36 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "Wheezy",
+      "image": "https://vignette.wikia.nocookie.net/pixar/images/0/04/A54EAAC1-70C6-429E-9F25-241E9E3BB946.png/revision/latest?cb=20190607005658",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "Lotso",
+      "image": "https://vignette.wikia.nocookie.net/pixar/images/4/49/A61F0EF0-83A8-4E0D-B616-2E1ECE5C9062.png/revision/latest?cb=20181126205424",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "Jessie",
+      "image": "https://i5.walmartimages.com/asr/03531e2a-1009-48bb-bd01-f02d79bb6626_1.141252895b17f0d7af007f6104542007.jpeg",
+      "likes": 0,
+      "id": 11
+    },
+    {
+      "name": "Miles",
+      "image": "safsa",
+      "likes": 0,
+      "id": 12
+    },
+    {
+      "name": "DJ Khalid",
+      "image": "https://i.insider.com/567322aedd08952d5d8b46de?width=1100&format=jpeg&auto=webp",
+      "likes": 0,
+      "id": 13
     }
   ]
 }
